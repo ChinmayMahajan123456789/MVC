@@ -26,7 +26,7 @@ jobs:
         password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
     - name: build and push image to ACR
       run: |
-        docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} .
+        docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} . --file Dockerfile
         docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
   deploy:
