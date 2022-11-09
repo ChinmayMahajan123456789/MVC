@@ -25,6 +25,7 @@ jobs:
         username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
         password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
     - name: build and push image to ACR
+      uses: docker/build-push-action@v2
       with:
         context: MVC
       run: |
